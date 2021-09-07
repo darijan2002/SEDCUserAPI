@@ -57,5 +57,12 @@ namespace UserAPI.Controllers
             //return Ok(u);
             return CreatedAtRoute("GetByIndex", new { i = users.Count - 1 }, u);
         }
+
+        // ?colors=a&colors=b... => {a,b,...}
+        [HttpGet("getlen")]
+        public int GetQueryArrayLen([FromQuery] string[] colors)
+        {
+            return colors.Length;
+        }
     }
 }
